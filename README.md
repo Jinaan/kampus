@@ -7,7 +7,7 @@ A centralized hub for my university tasks, assignments, and tests - showcasing m
 Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/kampus-repository.git
+git clone https://github.com/Jinaan/kampus.git
 ```
 
 ## Folder Structure
