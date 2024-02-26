@@ -25,5 +25,9 @@ This repository is my academic archive, but feel free to explore. Open issues or
 
 ## Contributing
 
-Contributions are welcome! Open issues or submit pull requests for improvements or new content.
+Contributions are welcome! However, to maintain academic integrity and allow for proper evaluation, only projects uploaded more than one month ago are open for contributions. This policy is in place to avoid issues with inspectors or teachers who may not have had the opportunity to review recent projects.
+
+If you have suggestions, find errors, or want to contribute to projects older than one month, please feel free to open issues or submit pull requests.
+
+Your understanding and cooperation are appreciated.
 
