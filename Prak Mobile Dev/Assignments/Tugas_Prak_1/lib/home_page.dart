@@ -18,13 +18,13 @@ class home_page extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.blue,
           // leading: Icon(Icons.menu),
-          title: Text(messagepackage, style: TextStyle(color: Colors.white)),
+          title: Text('Welcome $messagepackage', style: TextStyle(color: Colors.white)),
           actions: [
             IconButton(
               // logout
               icon: Icon(Icons.account_circle),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => account_page(messagepackage: 'Account Page')));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => account_page(messagepackage: messagepackage)));
               }
             ),
           ],

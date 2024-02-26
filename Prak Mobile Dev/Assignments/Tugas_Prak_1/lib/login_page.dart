@@ -33,17 +33,7 @@ class _LoginPageState extends State<LoginPage> {
 
 
   Widget _flutterLogo() {
-    return Container(
-      height: 150.0,
-      width: 190.0,
-      padding: EdgeInsets.only(top: 40),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(200),
-      ),
-      child: const Center(
-        child: FlutterLogo(size: 100,),
-      ),
-    );
+    return const FlutterLogo(size: 100);
   }
 
   Widget _usernametextField() {
@@ -112,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
 
           if (isLoginSuccess) {
               Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-                return home_page(messagepackage: 'Welcome $username');
+                return home_page(messagepackage: username);
               }));
           }
         },
