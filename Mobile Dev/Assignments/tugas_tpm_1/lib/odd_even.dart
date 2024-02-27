@@ -23,8 +23,8 @@ class _oddevenState extends State<oddeven> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        backgroundColor: Colors.blue,
+        title: Text(widget.title, style: TextStyle(color: Colors.white)),
       ),
       body: Center(
         child: Column(

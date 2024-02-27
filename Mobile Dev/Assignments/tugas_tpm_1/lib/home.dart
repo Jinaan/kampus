@@ -30,9 +30,9 @@ class home_page extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.7,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const crement(title: 'Increment Decrement')));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const crement(title: 'Kalkulator')));
                   },
-                  child: const Text('Increment Decrement'),
+                  child: const Text('Kalkulator'),
                 ),
               ),
               Container(
@@ -41,9 +41,9 @@ class home_page extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.7,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const oddeven(title: 'Odd Even')));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const oddeven(title: 'Ganjil Genap')));
                   },
-                  child: const Text('Odd Even'),
+                  child: const Text('Ganji Genap'),
                 ),
               ),
             ],
