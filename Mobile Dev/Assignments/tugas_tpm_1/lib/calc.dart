@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: camel_case_types
 class crement extends StatefulWidget {
   final String title;
   const crement({super.key, required this.title});
@@ -8,6 +9,7 @@ class crement extends StatefulWidget {
   State<crement> createState() => _crementState();
 }
 
+// ignore: camel_case_types
 class _crementState extends State<crement> {
   int firtNumber = 0;
   int secondNumber = 0;
@@ -30,7 +32,7 @@ class _crementState extends State<crement> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
-        title: Text(widget.title, style: TextStyle(color: Colors.white)),
+        title: Text(widget.title, style: const TextStyle(color: Colors.white)),
       ),
       body: Center(
         child: _bodyContainer(),

@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+// ignore: camel_case_types
 class oddeven extends StatefulWidget {
   final String title;
-  const oddeven({Key? key, required this.title}) : super(key: key);
+  const oddeven({super.key, required this.title});
+  @override
   State<oddeven> createState() => _oddevenState();
 }
 
+// ignore: camel_case_types
 class _oddevenState extends State<oddeven> {
   int _number = 0;
   String _result = "";
@@ -24,7 +27,7 @@ class _oddevenState extends State<oddeven> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
-        title: Text(widget.title, style: TextStyle(color: Colors.white)),
+        title: Text(widget.title, style: const TextStyle(color: Colors.white)),
       ),
       body: Center(
         child: Column(
@@ -44,7 +47,7 @@ class _oddevenState extends State<oddeven> {
           '$_number itu $_result',
           style: Theme.of(context).textTheme.headlineMedium,
         ),
-        Padding(padding: EdgeInsets.only(top: 20)),
+        const Padding(padding: EdgeInsets.only(top: 20)),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -52,7 +55,7 @@ class _oddevenState extends State<oddeven> {
               width: MediaQuery.of(context).size.width * 0.8,
               child : TextField(
                 keyboardType: TextInputType.number,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Angka',
                   hintText: 'Masukkan angka disini',
@@ -66,9 +69,9 @@ class _oddevenState extends State<oddeven> {
                       // if string, show snackbar
                       if (value.isNotEmpty) {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
+                          const SnackBar(
                             content: Text('Input harus angka'),
-                            duration: const Duration(seconds: 1),
+                            duration: Duration(seconds: 1),
                           ),
                         );
                       }

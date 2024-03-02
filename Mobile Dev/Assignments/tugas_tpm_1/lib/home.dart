@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'calc.dart';
 import 'odd_even.dart';
 
+// ignore: camel_case_types
 class home_page extends StatelessWidget {
-  home_page({Key? key}) : super(key: key);
+  const home_page({super.key});
 
   @override
   Widget build(BuildContext context) {
