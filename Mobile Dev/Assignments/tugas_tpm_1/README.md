@@ -19,11 +19,11 @@ Welcome to our Campus Assignment App, a simple Flutter and Dart project combinin
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Jinaan/Campus-Assignment.git
+   git clone https://github.com/Jinaan/kampus.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd Campus-Assignment
+   cd Mobile Dev/Assignments/tugas_tpm_1/lib
    ```
 3. Run the app:
    ```bash
