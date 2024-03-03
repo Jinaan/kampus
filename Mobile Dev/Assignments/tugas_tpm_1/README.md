@@ -35,12 +35,33 @@ Welcome to our Campus Assignment App, a simple Flutter and Dart project combinin
 
    ```bash
       # Clone the repository
-      git clone https://github.com/your-username/flutter-campus-assignment.git
+      git clone https://github.com/Jinaan/kampus.git
       
       # Navigate to the project directory
-      cd flutter-campus-assignment
+      cd Mobile Dev/Assignments/tugas_tpm_1/lib
       
       # Run the app
       flutter run
    ```
 </details>
+
+## Contributors ✨
+
+Thanks goes to these amazing contributors for their valuable contributions to this project:
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/Jinaan">
+        <img src="https://github.com/Jinaan.png" width="100px;" alt="Jinaan"/><br />
+        <sub><b>Jinaan</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/nafix83">
+        <img src="https://github.com/nafix83.png" width="100px;" alt="Ardan Maulana N."/><br />
+        <sub><b>Ardan Maulana N.</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
