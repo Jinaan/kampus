@@ -1,16 +1,31 @@
-# tugas_tpm_1
+# Campus Assignment App
 
-A new Flutter project.
+Welcome to our Campus Assignment App, a simple Flutter and Dart project combining a login page, a basic calculator, and an odd-even number checker. This collaborative effort was made possible by [Jinaan](https://github.com/Jinaan) and [Ardan Maulana N. (nafix83)](https://github.com/nafix83).
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+### Login Page
+- Secure and user-friendly login page.
+- Placeholder authentication (for educational purposes).
 
-A few resources to get you started if this is your first Flutter project:
+### Simple Calculator
+- Basic calculator functionality.
+- Addition and subtraction operations supported between two input numbers.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Odd-Even Page
+- Determine whether a given number is odd or even.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## How to Run
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Jinaan/Campus-Assignment.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd Campus-Assignment
+   ```
+3. Run the app:
+   ```bash
+   flutter run
+   ```
