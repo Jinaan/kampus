@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
@@ -8,7 +10,9 @@ import 'home.dart';
 
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  // ignore: non_constant_identifier_names
+  String PlatformDevice = '';
+  LoginPage({super.key, required this.PlatformDevice});
 
   @override
   State<LoginPage> createState() => _LoginPageState();

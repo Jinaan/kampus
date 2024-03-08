@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'popUpMsg.dart';
+
 // ignore: camel_case_types
 class crement extends StatefulWidget {
   final String title;
@@ -52,7 +54,21 @@ class _crementState extends State<crement> {
               border: OutlineInputBorder(),
               labelText: 'Angka Pertama',
             ),
-            onChanged: (value) => firtNumber = int.parse(value),
+            onChanged: (value) => {
+              // check if value is empty
+              if (value.isEmpty) {
+                firtNumber = 0
+              } 
+              // check if value is not a number
+              else if (int.tryParse(value) == null) {
+                firtNumber = 0,
+                showCustomSnackbar(context, 'Input harus angka'),
+              }
+              // if value is a number
+              else {
+                firtNumber = int.parse(value)
+              }
+            }
           ),
         ),
         SizedBox(
@@ -62,7 +78,21 @@ class _crementState extends State<crement> {
               border: OutlineInputBorder(),
               labelText: 'Angka Kedua',
             ),
-            onChanged: (value) => secondNumber = int.parse(value),
+            onChanged: (value) => {
+              // check if value is empty
+              if (value.isEmpty) {
+                secondNumber = 0
+              } 
+              // check if value is not a number
+              else if (int.tryParse(value) == null) {
+                secondNumber = 0,
+                showCustomSnackbar(context, 'Input harus angka'),
+              }
+              // if value is a number
+              else {
+                secondNumber = int.parse(value)
+              }
+            }
           ),
         ),
       ],
