@@ -3,6 +3,7 @@ import 'dart:html';
 import 'package:flutter/material.dart';
 
 import 'disease_data.dart';
+import 'detail_disease.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -40,8 +41,34 @@ Widget _conainerImage(diseaseData) {
       return Container(
         child: Column(
           children: [
-            Image.network(diseaseData[index].imgUrls),
-            Text(diseaseData[index].name),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                elevation: 3,
+                minimumSize: Size(220, 220),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailDisease(messagepackage: diseaseData[index]),
+                  ),
+                );
+              },
+              child: Container(
+                child: Column(
+                  children: [
+                    Image(
+                    image: NetworkImage(diseaseData[index].imgUrls),
+                    width: 200,
+                    height: 200,
+                  ),
+                  Text(diseaseData[index].name),
+                  ]
+                ),
+              ),
+            )
+            // Image.network(diseaseData[index].imgUrls),
+            
           ],
         ),
       );
