@@ -41,18 +41,14 @@ Widget _conainerImage(diseaseData) {
       return Container(
         child: Column(
           children: [
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                elevation: 3,
-                minimumSize: Size(220, 220),
-              ),
-              onPressed: () {
+            InkWell(
+              onTap: () => {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => DetailDisease(messagepackage: diseaseData[index]),
                   ),
-                );
+                )
               },
               child: Container(
                 child: Column(
