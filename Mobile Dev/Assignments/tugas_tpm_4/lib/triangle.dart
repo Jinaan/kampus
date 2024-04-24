@@ -53,17 +53,32 @@ class _TriangleCalculatorWidgetState extends State<TriangleCalculatorWidget> {
   void _calculate() {
     if (_selectedInfo == KnownInfo.sidesOnly) {
       double sideA = double.parse(_sideAController.text.trim());
-      double sideB = double.parse(_sideBController.text.trim());
-      double sideC = double.parse(_sideCController.text.trim());
 
-      double perimeter = sideA + sideB + sideC;
-      double s = perimeter / 2;
-      double area = sqrt(s * (s - sideA) * (s - sideB) * (s - sideC));
+      if (_selectedTriangleType == TriangleType.rightTriangle) {
+        double sideB = double.parse(_sideBController.text.trim());
+        double sideC = double.parse(_sideCController.text.trim());
+        // find side with 1st and 2nd lowest values
+        List<double> sides = [sideA, sideB, sideC];
+        sides.sort();
+        double base = sides[0];
+        double height = sides[1];
 
-      setState(() {
-        _perimeterResult = 'Perimeter: $perimeter';
-        _areaResult = 'Area: $area';
-      });
+        double perimeter = sideA + sideB + sideC;
+        double area = (base * height) / 2;
+
+        setState(() {
+          _perimeterResult = 'Perimeter: $perimeter';
+          _areaResult = 'Area: $area';
+        });
+      } else if (_selectedTriangleType == TriangleType.equilateralTriangle) {
+        double perimeter = 3 * sideA;
+        double area = (sqrt(3) / 4) * pow(sideA, 2);
+
+        setState(() {
+          _perimeterResult = 'Perimeter: $perimeter';
+          _areaResult = 'Area: $area';
+        });
+      }
     } else if (_selectedInfo == KnownInfo.baseAndHeight) {
       double base = double.parse(_baseController.text.trim());
       double height = double.parse(_heightController.text.trim());
@@ -92,106 +107,117 @@ class _TriangleCalculatorWidgetState extends State<TriangleCalculatorWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        DropdownButton<TriangleType>(
-          value: _selectedTriangleType,
-          onChanged: (value) {
-            setState(() {
-              _selectedTriangleType = value!;
-            });
-          },
-          items: [
-            DropdownMenuItem(
-              value: TriangleType.rightTriangle,
-              child: Text('Right Triangle'),
-            ),
-            DropdownMenuItem(
-              value: TriangleType.equilateralTriangle,
-              child: Text('Equilateral Triangle'),
-            ),
-          ],
-        ),
-        SizedBox(height: 16.0),
-        DropdownButton<KnownInfo>(
-          value: _selectedInfo,
-          onChanged: (value) {
-            setState(() {
-              _selectedInfo = value!;
-            });
-          },
-          items: [
-            DropdownMenuItem(
-              value: KnownInfo.sidesOnly,
-              child: Text('Known sides only'),
-            ),
-            DropdownMenuItem(
-              value: KnownInfo.baseAndHeight,
-              child: Text('Known base and height'),
-            ),
-          ],
-        ),
-        SizedBox(height: 16.0),
-        if (_selectedInfo == KnownInfo.sidesOnly)
-          Column(
-            children: [
-              TextField(
-                controller: _sideAController,
-                keyboardType: TextInputType.numberWithOptions(decimal: true),
-                decoration: InputDecoration(labelText: 'Side A'),
+    return Container(
+      height: 420.0,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          DropdownButton<TriangleType>(
+            value: _selectedTriangleType,
+            onChanged: (value) {
+              setState(() {
+                _selectedTriangleType = value!;
+              });
+            },
+            items: [
+              DropdownMenuItem(
+                value: TriangleType.rightTriangle,
+                child: Text('Right Triangle'),
               ),
-              TextField(
-                controller: _sideBController,
-                keyboardType: TextInputType.numberWithOptions(decimal: true),
-                decoration: InputDecoration(labelText: 'Side B'),
-              ),
-              TextField(
-                controller: _sideCController,
-                keyboardType: TextInputType.numberWithOptions(decimal: true),
-                decoration: InputDecoration(labelText: 'Side C'),
+              DropdownMenuItem(
+                value: TriangleType.equilateralTriangle,
+                child: Text('Equilateral Triangle'),
               ),
             ],
           ),
-        if (_selectedInfo == KnownInfo.baseAndHeight)
-          Column(
-            children: [
-              TextField(
-                controller: _baseController,
-                keyboardType: TextInputType.numberWithOptions(decimal: true),
-                decoration: InputDecoration(labelText: 'Base'),
+          SizedBox(height: 16.0),
+          DropdownButton<KnownInfo>(
+            value: _selectedInfo,
+            onChanged: (value) {
+              setState(() {
+                _selectedInfo = value!;
+              });
+            },
+            items: [
+              DropdownMenuItem(
+                value: KnownInfo.sidesOnly,
+                child: Text('Known sides only'),
               ),
-              TextField(
-                controller: _heightController,
-                keyboardType: TextInputType.numberWithOptions(decimal: true),
-                decoration: InputDecoration(labelText: 'Height'),
+              DropdownMenuItem(
+                value: KnownInfo.baseAndHeight,
+                child: Text('Known base and height'),
               ),
             ],
           ),
-        SizedBox(height: 16.0),
-        ElevatedButton(
-          onPressed: _calculate,
-          child: Text('Calculate'),
-        ),
-        SizedBox(height: 16.0),
-        Text(
-          _perimeterResult,
-          style: TextStyle(
-            fontSize: 18.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.blue,
+          SizedBox(height: 16.0),
+          if (_selectedInfo == KnownInfo.sidesOnly &&
+              _selectedTriangleType == TriangleType.equilateralTriangle)
+            TextField(
+              controller: _sideAController,
+              keyboardType: TextInputType.numberWithOptions(decimal: true),
+              decoration: InputDecoration(labelText: 'Side (All)'),
+            ),
+          if (_selectedInfo == KnownInfo.sidesOnly &&
+              _selectedTriangleType != TriangleType.equilateralTriangle)
+            Column(
+              children: [
+                TextField(
+                  controller: _sideAController,
+                  keyboardType: TextInputType.numberWithOptions(decimal: true),
+                  decoration: InputDecoration(labelText: 'Side A'),
+                ),
+                TextField(
+                  controller: _sideBController,
+                  keyboardType: TextInputType.numberWithOptions(decimal: true),
+                  decoration: InputDecoration(labelText: 'Side B'),
+                ),
+                TextField(
+                  controller: _sideCController,
+                  keyboardType: TextInputType.numberWithOptions(decimal: true),
+                  decoration: InputDecoration(labelText: 'Side C'),
+                ),
+              ],
+            ),
+          if (_selectedInfo == KnownInfo.baseAndHeight)
+            Column(
+              children: [
+                TextField(
+                  controller: _baseController,
+                  keyboardType: TextInputType.numberWithOptions(decimal: true),
+                  decoration: InputDecoration(labelText: 'Base'),
+                ),
+                TextField(
+                  controller: _heightController,
+                  keyboardType: TextInputType.numberWithOptions(decimal: true),
+                  decoration: InputDecoration(labelText: 'Height'),
+                ),
+              ],
+            ),
+          SizedBox(height: 16.0),
+          ElevatedButton(
+            onPressed: _calculate,
+            child: Text('Calculate'),
           ),
-        ),
-        SizedBox(height: 8.0),
-        Text(
-          _areaResult,
-          style: TextStyle(
-            fontSize: 18.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.green,
+          SizedBox(height: 16.0),
+          Text(
+            _perimeterResult,
+            style: TextStyle(
+              fontSize: 18.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.blue,
+            ),
           ),
-        ),
-      ],
+          SizedBox(height: 8.0),
+          Text(
+            _areaResult,
+            style: TextStyle(
+              fontSize: 18.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.green,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

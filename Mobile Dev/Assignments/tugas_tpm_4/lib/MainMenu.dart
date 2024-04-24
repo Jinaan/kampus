@@ -4,6 +4,8 @@ import 'mainMenuButton.dart';
 import 'memberWidget.dart';
 import 'oddEvenPage.dart';
 import 'triangle.dart';
+import 'recomendationSites.dart';
+import 'FavoriteSitesWidget.dart';
 
 class MainMenu extends StatelessWidget {
   @override
@@ -57,38 +59,30 @@ class MainMenu extends StatelessWidget {
             MainMenuButton(
               icon: Icons.web,
               title: 'Daftar Situs Rekomendasi',
-              content: Container(
-                padding: EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    Text('Daftar Situs Rekomendasi'),
-                    SizedBox(height: 20),
-                    Text('1. https://www.google.com'),
-                    Text('2. https://www.youtube.com'),
-                    Text('3. https://www.dicoding.com'),
-                    Text('4. https://www.github.com'),
-                    Text('5. https://www.medium.com'),
-                  ],
-                ),
+              content: RecommendedSitesWidget(
+                sites: [
+                  RecommendedSite(
+                    imageUrl: 'images/barbara.jpg',
+                    name: 'Flutter',
+                    link: 'https://flutter.dev',
+                  ),
+                  RecommendedSite(
+                    imageUrl: 'images/barbara.jpg',
+                    name: 'Dart',
+                    link: 'https://dart.dev',
+                  ),
+                  RecommendedSite(
+                    imageUrl: 'images/barbara.jpg',
+                    name: 'Material Design',
+                    link: 'https://material.io',
+                  ),
+                ],
               ),
             ),
             MainMenuButton(
               icon: Icons.favorite,
               title: 'Favorite',
-              content: Container(
-                padding: EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    Text('Favorite'),
-                    SizedBox(height: 20),
-                    Text('1. Favorite 1'),
-                    Text('2. Favorite 2'),
-                    Text('3. Favorite 3'),
-                    Text('4. Favorite 4'),
-                    Text('5. Favorite 5'),
-                  ],
-                ),
-              ),
+              content: FavoriteSitesWidget(),
             ),
           ],
         ),
