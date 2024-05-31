@@ -48,15 +48,6 @@ class GamePage extends StatelessWidget {
           ),
         ),
         SizedBox(height: 16.0),
-        // Text(
-        //   gameDetails.title!,
-        //   style: TextStyle(
-        //     fontWeight: FontWeight.bold,
-        //     fontSize: 24.0,
-        //   ),
-        //   textAlign: TextAlign.center,
-        // ),
-        // SizedBox(height: 8.0),
         Text(
           gameDetails.shortDescription!,
           textAlign: TextAlign.center,
@@ -72,12 +63,6 @@ class GamePage extends StatelessWidget {
         SizedBox(height: 8.0),
         Text(gameDetails.description!),
         SizedBox(height: 16.0),
-        // _buildDetailRow('Platform', gameDetails.platform!),
-        // _buildDetailRow('Status', gameDetails.status!),
-        // _buildDetailRow('Genre', gameDetails.genre!),
-        // _buildDetailRow('Publisher', gameDetails.publisher!),
-        // _buildDetailRow('Developer', gameDetails.developer!),
-        // _buildDetailRow('Release Date', gameDetails.releaseDate!),
         _buildDetailTable(gameDetails),
         SizedBox(height: 16.0),
         Text(
@@ -88,18 +73,11 @@ class GamePage extends StatelessWidget {
           ),
         ),
         SizedBox(height: 8.0),
-        if (gameDetails.minimumSystemRequirements == null)
+        if (gameDetails.minimumSystemRequirements == null ||
+            gameDetails.minimumSystemRequirements!.toJson().isEmpty)
           Text('No information available')
         else
           _buildSysReqTable(gameDetails),
-        // Column(
-        //   crossAxisAlignment: CrossAxisAlignment.start,
-        //   children: gameDetails.minimumSystemRequirements!
-        //       .toJson()
-        //       .entries
-        //       .map((entry) => _buildDetailRow(entry.key, entry.value))
-        //       .toList(),
-        // ),
         SizedBox(height: 16.0),
         Text(
           'Screenshots:',
@@ -130,26 +108,6 @@ class GamePage extends StatelessWidget {
     );
   }
 
-  Widget _buildDetailRow(String label, String value) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 4.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            label + ' : ',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Expanded(
-            child: Text(value),
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget _buildDetailTable(JsonGameDetails gameDetails) {
     return Table(
       columnWidths: {
@@ -176,7 +134,8 @@ class GamePage extends StatelessWidget {
       children: gameDetails.minimumSystemRequirements!
           .toJson()
           .entries
-          .map((entry) => _buildTableRow(entry.key, entry.value))
+          .map((entry) => _buildTableRow(
+              entry.key, entry.value == null ? 'Not specified' : entry.value!))
           .toList(),
     );
   }

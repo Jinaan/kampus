@@ -59,6 +59,8 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Future<void> _logout() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('lastEmail', emailController.text);
+
     prefs.remove('email');
     prefs.remove('password');
 
@@ -111,10 +113,6 @@ class _ProfilePageState extends State<ProfilePage> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: <Widget>[
-            // CircleAvatar(
-            //   radius: 50,
-            //   backgroundImage: NetworkImage('https://via.placeholder.com/150'),
-            // ),
             SizedBox(height: 20),
             TextField(
               controller: emailController,
@@ -144,7 +142,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               onChanged: (value) {
                 setState(() {
-                  passwordChanged = value != password;
+                  passwordChanged = value.isNotEmpty && value != password;
                 });
               },
             ),

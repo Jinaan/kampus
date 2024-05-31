@@ -3,29 +3,6 @@ import '../../API/games/dataConn.dart';
 
 import '../game/gamePage.dart';
 
-// class GamesWidget extends StatelessWidget {
-//   final List<jsonGames> games;
-
-//   GamesWidget({required this.games});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return ListView.builder(
-//       itemCount: games.length,
-//       itemBuilder: (context, index) {
-//         return Card(
-//           child: ListTile(
-//             leading: Image.network(games[index].thumbnail!),
-//             title: Text(games[index].title!),
-//             subtitle: Text(games[index].shortDescription!),
-//             trailing: Text(games[index].platform!),
-//           ),
-//         );
-//       },
-//     );
-//   }
-// }
-
 class GamesWidget extends StatelessWidget {
   final List<jsonGames> games;
 
@@ -121,9 +98,6 @@ class GamesWidget extends StatelessWidget {
 
     if (platforms.contains("PC (Windows)") || platforms.contains("PC (MAC)")) {
       icons.add(Icon(Icons.computer, size: 20.0));
-    }
-    if (platforms.contains("mobile")) {
-      icons.add(Icon(Icons.smartphone, size: 20.0));
     }
     if (platforms.contains("Web Browser")) {
       icons.add(Icon(Icons.web, size: 20.0));
