@@ -1,0 +1,10 @@
+E:/Mobile/sistem_pakar/build/windows/x64/runner/Debug/data/icudtl.dat
+E:/Mobile/sistem_pakar/build/windows/x64/runner/Debug/flutter_windows.dll
+E:/Mobile/sistem_pakar/build/windows/x64/runner/Debug/data/flutter_assets/AssetManifest.bin
+E:/Mobile/sistem_pakar/build/windows/x64/runner/Debug/data/flutter_assets/AssetManifest.json
+E:/Mobile/sistem_pakar/build/windows/x64/runner/Debug/data/flutter_assets/FontManifest.json
+E:/Mobile/sistem_pakar/build/windows/x64/runner/Debug/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+E:/Mobile/sistem_pakar/build/windows/x64/runner/Debug/data/flutter_assets/kernel_blob.bin
+E:/Mobile/sistem_pakar/build/windows/x64/runner/Debug/data/flutter_assets/NOTICES.Z
+E:/Mobile/sistem_pakar/build/windows/x64/runner/Debug/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
+E:/Mobile/sistem_pakar/build/windows/x64/runner/Debug/data/flutter_assets/shaders/ink_sparkle.frag
